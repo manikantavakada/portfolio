@@ -1,0 +1,185 @@
+{
+  "hero": {
+    "name": "Vakada Manikanta",
+    "title": "Software Engineer | Mobile App Developer",
+    "tagline": "Focused on building scalable, user-friendly applications with real-world impact."
+  },
+  "about": {
+    "summary": "A dedicated software engineer with experience building cross-platform applications across healthcare, logistics, and public service domains. I focus on turning complex workflows into intuitive, dependable products through real-time systems, integration-heavy architecture, performance optimization, and user-centered problem solving."
+  },
+  "experience": [
+    {
+      "company": "InnData Analytics Pvt Ltd",
+      "role": "Software Engineer",
+      "period": "Sep 2025 - Present",
+      "summary": "Delivering applications across healthcare and logistics environments with strong emphasis on operational clarity and system reliability.",
+      "points": [
+        "Built applications in healthcare and logistics domains.",
+        "Implemented real-time tracking and booking systems.",
+        "Integrated APIs and payment systems.",
+        "Focused on performance, stability, and delivery quality."
+      ]
+    },
+    {
+      "company": "Nimaisoft Systems Pvt Ltd",
+      "role": "Associate Software Engineer",
+      "period": "May 2023 - Sep 2025",
+      "summary": "Contributed to production mobile applications and workflow tools where accuracy, speed, and debugging discipline were essential.",
+      "points": [
+        "Developed scalable mobile applications for production use.",
+        "Built a patient identification system using QR and barcode flows.",
+        "Worked on API integrations, issue resolution, and system debugging."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Exacto",
+      "category": "Medical App",
+      "description": "A connected healthcare experience that brings booking, consultation, scheduling, and communication into one cohesive product journey.",
+      "screenshots": [
+        {
+          "src": "assets/projects/Exacto.jpeg",
+          "alt": "Exacto app home and healthcare services screen"
+        },
+        {
+          "src": "assets/projects/Exacto1.jpeg",
+          "alt": "Exacto app booking and consultation flow"
+        },
+        {
+          "src": "assets/projects/Exacto2.jpeg",
+          "alt": "Exacto app test booking and service selection screen"
+        },
+        {
+          "src": "assets/projects/Exacto4.jpeg",
+          "alt": "Exacto app scheduling and notifications screen"
+        }
+      ],
+      "features": [
+        "Medical test booking",
+        "Doctor consultations through audio and video interactions",
+        "Secure payment integration",
+        "Notifications and appointment scheduling"
+      ],
+      "impact": "Created a seamless healthcare experience with real-time interactions and smoother patient coordination.",
+      "links": []
+    },
+    {
+      "title": "Smart Sense",
+      "category": "Health Monitoring Platform",
+      "description": "A health insights application designed to capture and present vital readings in a simple, reliable, and user-friendly flow for faster understanding and better follow-up.",
+      "screenshots": [
+        {
+          "src": "assets/projects/Smartsense.jpeg",
+          "alt": "Smart Sense health overview screen"
+        },
+        {
+          "src": "assets/projects/Smartsense1.jpeg",
+          "alt": "Smart Sense health dashboard and vitals summary"
+        },
+        {
+          "src": "assets/projects/Smartsense2.jpeg",
+          "alt": "Smart Sense measurement and result interpretation flow"
+        }
+      ],
+      "features": [
+        "Collected health readings such as blood pressure, oxygen levels, and related wellness indicators",
+        "Guided users through measurement and result interpretation flows",
+        "Integrated external health intelligence services to process and surface readings",
+        "Presented health data in a clean format that supported clarity and confidence"
+      ],
+      "impact": "Made health information easier to access and understand, helping transform raw readings into usable day-to-day insights.",
+      "links": []
+    },
+    {
+      "title": "AI Powered Financial Advisor",
+      "category": "Advisory Experience",
+      "description": "A guided financial recommendation experience that gathered user inputs, asked contextual follow-up questions, and returned more relevant suggestions based on each profile.",
+      "screenshots": [
+        {
+          "src": "assets/projects/Financial.jpeg",
+          "alt": "AI Powered Financial Advisor onboarding and input screen"
+        },
+        {
+          "src": "assets/projects/Financial2.jpeg",
+          "alt": "AI Powered Financial Advisor input and profile capture flow"
+        },
+        {
+          "src": "assets/projects/financial3.jpeg",
+          "alt": "AI Powered Financial Advisor guided question flow"
+        },
+        {
+          "src": "assets/projects/Financial4.jpeg",
+          "alt": "AI Powered Financial Advisor recommendation summary screen"
+        }
+      ],
+      "features": [
+        "Collected user goals, preferences, and financial inputs through an adaptive questionnaire",
+        "Asked dynamic follow-up questions based on previous responses",
+        "Generated suggestion flows tailored to the user context",
+        "Focused on clarity, trust, and understandable recommendations instead of overwhelming users"
+      ],
+      "impact": "Improved personalization in the advice flow and helped users move from uncertainty to actionable next steps faster.",
+      "links": []
+    },
+    {
+      "title": "Ship With Care",
+      "category": "Logistics Platform",
+      "description": "A shipment operations platform designed to improve visibility, planning, and execution across moving deliveries.",
+      "screenshots": [],
+      "visualNote": "Screens are not shown publicly due to company and client confidentiality.",
+      "features": [
+        "Real-time tracking",
+        "Booking and assignment workflows",
+        "Route optimization support",
+        "Live location sharing"
+      ],
+      "impact": "Improved shipment efficiency and tracking accuracy across operational flows.",
+      "links": []
+    },
+    {
+      "title": "Agile Policing App",
+      "category": "Public Safety Platform",
+      "description": "An operations support system built for responsive field coordination, active case workflows, and accountability in motion.",
+      "screenshots": [],
+      "visualNote": "Screens are withheld to respect operational sensitivity and internal usage constraints.",
+      "features": [
+        "Live tracking",
+        "Emergency case handling",
+        "Patrol and beat tracking",
+        "Image capture system"
+      ],
+      "impact": "Enhanced operational efficiency for police systems with stronger field visibility and coordination.",
+      "links": []
+    },
+    {
+      "title": "Patient Identification System",
+      "category": "Healthcare Workflow Tool",
+      "description": "A hospital workflow solution focused on fast, reliable identification and accurate record handling at the point of care.",
+      "screenshots": [],
+      "visualNote": "Screens are not displayed because the workflow is tied to internal clinical environments.",
+      "features": [
+        "QR and barcode scanning",
+        "Image capture and annotation",
+        "Record management"
+      ],
+      "impact": "Improved hospital workflow accuracy while reducing friction in patient handling processes.",
+      "links": []
+    }
+  ],
+  "skills": [
+    "Cross-platform mobile development",
+    "API integration",
+    "Real-time systems",
+    "Geolocation and tracking",
+    "Payment systems",
+    "Database handling",
+    "UI and UX implementation"
+  ],
+  "contact": {
+    "email": "vmanikanta2001@gmail.com",
+    "phone": "+91 79896 88080",
+    "linkedin": "https://www.linkedin.com/in/manikanta-vakada-9a2194199",
+    "github": "https://github.com/manikantavakada"
+  }
+}
