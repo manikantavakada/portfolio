@@ -11,21 +11,25 @@ export function createProjectCard(project, index) {
     .map((feature) => `<li>${escapeHtml(feature)}</li>`)
     .join("");
 
-  const screenshots = (project.screenshots || []).length
+  const shotCount = (project.screenshots || []).length;
+  const screenshots = shotCount
     ? `
-      <div class="project-gallery">
+      <div class="project-gallery" data-gallery="${index}">
         ${project.screenshots
-          .map(
-            (shot) => `
-              <figure class="project-shot">
-                <img
-                  src="${escapeHtml(shot.src)}"
-                  alt="${escapeHtml(shot.alt || `${project.title} application screen`)}"
-                  loading="lazy"
-                />
-              </figure>
-            `
-          )
+          .map((shot, shotIndex) => {
+            const alt = escapeHtml(shot.alt || `${project.title} application screen`);
+            return `
+              <button
+                type="button"
+                class="project-shot"
+                data-shot="${shotIndex}"
+                aria-label="Open screenshot ${shotIndex + 1} of ${shotCount}: ${alt}"
+              >
+                <img src="${escapeHtml(shot.src)}" alt="${alt}" loading="lazy" />
+                <span class="project-shot-zoom" aria-hidden="true">⤢</span>
+              </button>
+            `;
+          })
           .join("")}
       </div>
     `

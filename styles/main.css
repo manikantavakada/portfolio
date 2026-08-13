@@ -629,12 +629,44 @@ h3 {
   position: relative;
   min-height: 15rem;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
     linear-gradient(135deg, rgba(124, 140, 255, 0.18), rgba(78, 210, 255, 0.08));
+  cursor: zoom-in;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-shot:hover,
+.project-shot:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(124, 140, 255, 0.45);
+}
+
+.project-shot-zoom {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: rgba(9, 12, 26, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-shot:hover .project-shot-zoom,
+.project-shot:focus-visible .project-shot-zoom {
+  opacity: 1;
 }
 
 .project-shot::before {
@@ -913,5 +945,129 @@ h3 {
   .floating-card {
     animation: none !important;
     transform: none !important;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem clamp(1rem, 4vw, 2.5rem) 1.4rem;
+  background: rgba(5, 7, 18, 0.92);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lightbox-project {
+  margin: 0;
+  font-weight: 600;
+  color: #f3f6ff;
+}
+
+.lightbox-counter {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: scale(1.05);
+}
+
+.lightbox-nav[hidden] {
+  display: none;
+}
+
+.lightbox-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 2vw, 1.5rem);
+  min-height: 0;
+}
+
+.lightbox-image {
+  max-width: min(100%, 46rem);
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: default;
+}
+
+.lightbox-caption {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .lightbox-nav {
+    position: absolute;
+    bottom: 4.2rem;
+    z-index: 3;
+  }
+
+  .lightbox-prev {
+    left: 1rem;
+  }
+
+  .lightbox-next {
+    right: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox-close,
+  .lightbox-nav,
+  .project-shot,
+  .project-shot-zoom {
+    transition: none;
   }
 }

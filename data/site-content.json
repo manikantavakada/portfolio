@@ -126,8 +126,32 @@
       "title": "Ship With Care",
       "category": "Logistics Platform",
       "description": "A shipment operations platform designed to improve visibility, planning, and execution across moving deliveries.",
-      "screenshots": [],
-      "visualNote": "Screens are not shown publicly due to company and client confidentiality.",
+      "screenshots": [
+        {
+          "src": "assets/projects/swc2.jpeg",
+          "alt": "Ship With Care active orders list showing pickup and drop locations with live order status"
+        },
+        {
+          "src": "assets/projects/swc4.jpeg",
+          "alt": "Ship With Care driver order request screen with accept and cancel actions"
+        },
+        {
+          "src": "assets/projects/swc1.jpeg",
+          "alt": "Ship With Care order details screen with vehicle type, route and status update control"
+        },
+        {
+          "src": "assets/projects/swc5.jpeg",
+          "alt": "Ship With Care item confirmation screen with loading timer before dispatch"
+        },
+        {
+          "src": "assets/projects/swc3.jpeg",
+          "alt": "Ship With Care order details showing driver verification, item manifest and customer details"
+        },
+        {
+          "src": "assets/projects/swc6.jpeg",
+          "alt": "Ship With Care completed order summary with vehicle, route and driver information"
+        }
+      ],
       "features": [
         "Real-time tracking",
         "Booking and assignment workflows",
@@ -141,8 +165,32 @@
       "title": "Agile Policing App",
       "category": "Public Safety Platform",
       "description": "An operations support system built for responsive field coordination, active case workflows, and accountability in motion.",
-      "screenshots": [],
-      "visualNote": "Screens are withheld to respect operational sensitivity and internal usage constraints.",
+      "screenshots": [
+        {
+          "src": "assets/projects/agile1.jpeg",
+          "alt": "Agile Policing home dashboard with alerts, incidents and beat modules in Telugu"
+        },
+        {
+          "src": "assets/projects/agile2.jpeg",
+          "alt": "Agile Policing officer profile and navigation drawer with siren mode toggle"
+        },
+        {
+          "src": "assets/projects/agile3.jpeg",
+          "alt": "Agile Policing my beat services list with checkpoint timings and geo coordinates"
+        },
+        {
+          "src": "assets/projects/agile4.jpeg",
+          "alt": "Agile Policing mandatory patrol routes with service status and route points"
+        },
+        {
+          "src": "assets/projects/agile5.jpeg",
+          "alt": "Agile Policing check-in screen for patrol points with distance tracking"
+        },
+        {
+          "src": "assets/projects/agile6.jpeg",
+          "alt": "Agile Policing live map view showing patrol points and current officer location"
+        }
+      ],
       "features": [
         "Live tracking",
         "Emergency case handling",

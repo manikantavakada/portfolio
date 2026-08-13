@@ -5,6 +5,7 @@ import {
   createTimelineItem
 } from "./components.js";
 import { initParallaxGlow, initRevealAnimations } from "./animations.js";
+import { initLightbox } from "./lightbox.js";
 
 async function loadContent() {
   const response = await fetch("./data/site-content.json");
@@ -88,6 +89,7 @@ async function bootstrap() {
     const content = await loadContent();
     populateContent(content);
     initNavigation();
+    initLightbox(content.projects);
     initContactForm(content);
     initRevealAnimations();
     initParallaxGlow();
