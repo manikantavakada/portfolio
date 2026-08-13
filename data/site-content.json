@@ -212,7 +212,12 @@
         "Record management"
       ],
       "impact": "Improved hospital workflow accuracy while reducing friction in patient handling processes.",
-      "links": []
+      "links": [
+        {
+          "label": "View on App Store",
+          "href": "https://apps.apple.com/in/app/medrcmbchses/id6760552603"
+        }
+      ]
     }
   ],
   "skills": [
