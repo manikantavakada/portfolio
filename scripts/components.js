@@ -12,28 +12,25 @@ export function createProjectCard(project, index) {
     .join("");
 
   const shotCount = (project.screenshots || []).length;
-  const cover = shotCount
-    ? `
-      <div class="project-gallery" data-gallery="${index}">
-        <button
-          type="button"
-          class="project-cover project-shot"
-          data-shot="0"
-          aria-label="Open the ${escapeHtml(project.title)} screenshot gallery, ${shotCount} screens"
-        >
-          <img src="${escapeHtml(project.screenshots[0].src)}" alt="${escapeHtml(project.screenshots[0].alt || `${project.title} application screen`)}" loading="lazy" />
-          <span class="project-cover-glass" aria-hidden="true"><i>View screens</i><b>${shotCount}</b></span>
-        </button>
-      </div>
-    `
-    : "";
+  const layerShots = (project.screenshots || []).slice(0, 3);
+  const stack = shotCount
+    ? layerShots
+        .map((shot, shotIndex) => {
+          const alt = escapeHtml(shot.alt || `${project.title} application screen`);
+          return `<img class="folder-shot folder-shot-${shotIndex + 1}" src="${escapeHtml(shot.src)}" alt="${alt}" loading="lazy" />`;
+        })
+        .join("")
+    : `<span class="folder-placeholder" aria-hidden="true"><i></i><i></i><i></i></span>`;
+
+  const technology = project.category.includes("Healthcare")
+    ? "Mobile · APIs · Workflows"
+    : project.category.includes("Logistics") || project.category.includes("Safety")
+      ? "Mobile · Live tracking · APIs"
+      : "Mobile · Integrations · UX";
 
   const visualNote = !(project.screenshots || []).length && project.visualNote
     ? `
-      <div class="project-visual-note project-cover">
-        <span class="visual-note-label">Internal workflow</span>
-        <p>${escapeHtml(project.visualNote)}</p>
-      </div>
+      <p class="project-access-note">${escapeHtml(project.visualNote)}</p>
     `
     : "";
 
@@ -45,16 +42,24 @@ export function createProjectCard(project, index) {
     .join("");
 
   return `
-    <article class="project-card glass-panel reveal" data-delay="${index * 90}">
-      ${cover}
-      ${visualNote}
-      <div class="project-card-header">
-        <div>
-          <p class="project-category">${escapeHtml(project.category)}</p>
-          <h3>${escapeHtml(project.title)}</h3>
-        </div>
-        <span class="project-index">0${index + 1}</span>
+    <article class="project-card project-folder reveal" data-delay="${index * 90}">
+      <div class="project-gallery" data-gallery="${index}">
+        <button type="button" class="project-folder-trigger project-shot" data-shot="0" aria-label="Open ${escapeHtml(project.title)} project gallery">
+          <span class="folder-stack" aria-hidden="true">${stack}</span>
+          <span class="folder-front">
+            <span class="folder-tab"></span>
+            <span class="folder-reflection"></span>
+            <span class="folder-content">
+              <span class="project-category">${escapeHtml(project.category)}</span>
+              <strong>${escapeHtml(project.title)}</strong>
+              <small>${escapeHtml(project.description)}</small>
+              <em>${escapeHtml(technology)}</em>
+              <span class="folder-cta">View project <b aria-hidden="true">→</b></span>
+            </span>
+          </span>
+        </button>
       </div>
+      ${visualNote}
       <details class="project-details">
         <summary>About this project <span aria-hidden="true">+</span></summary>
         <div class="project-details-body">

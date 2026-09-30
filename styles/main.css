@@ -947,6 +947,128 @@ body {
 body .about-grid { align-items: start; }
 body .about-summary { align-self: start; }
 body .highlight-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Projects: layered screenshot folders. Scoped to this section so no other layout changes. */
+#projects .section-heading { margin-bottom: 1.6rem; }
+#projects .section-heading h2 { max-width: none; }
+#projects .projects-grid {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.7rem);
+  margin-inline: calc(var(--container-pad) * -1);
+  padding: 1.25rem var(--container-pad) 2rem;
+  overflow-x: auto;
+  overflow-y: clip;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 86, 85, .24) transparent;
+}
+#projects .projects-grid::-webkit-scrollbar { height: 5px; }
+#projects .projects-grid::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(79,86,85,.2); }
+#projects .project-card {
+  flex: 0 0 clamp(20rem, 31vw, 26rem);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  scroll-snap-align: start;
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+#projects .project-card:hover, #projects .project-card:focus-within { transform: none; border: 0; box-shadow: none; }
+#projects .project-gallery { display: block; margin: 0; padding: 0; overflow: visible; }
+#projects .project-folder-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 21rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  isolation: isolate;
+  transition: transform .38s cubic-bezier(.2,.8,.2,1);
+}
+#projects .project-folder-trigger:focus-visible { outline: 3px solid rgba(211,63,74,.48); outline-offset: 8px; border-radius: 24px; }
+#projects .folder-stack { position: absolute; inset: 0; display: block; pointer-events: none; }
+#projects .folder-shot {
+  position: absolute;
+  top: 1.25rem;
+  left: 12%;
+  width: 72%;
+  height: 14.7rem;
+  border: 1px solid rgba(255,255,255,.88);
+  border-radius: 20px;
+  box-shadow: 0 17px 31px rgba(39,34,35,.18);
+  object-fit: cover;
+  object-position: top center;
+  transform-origin: center bottom;
+  transition: transform .42s cubic-bezier(.2,.8,.2,1), box-shadow .42s ease;
+}
+#projects .folder-shot-1 { z-index: 3; transform: translate(0, 0) rotate(-1deg); }
+#projects .folder-shot-2 { z-index: 2; transform: translate(-2.2rem, -.85rem) rotate(-6deg) scale(.95); opacity: .9; }
+#projects .folder-shot-3 { z-index: 1; transform: translate(2.3rem, -1.1rem) rotate(5deg) scale(.92); opacity: .84; }
+#projects .project-folder:nth-child(2n) .folder-shot-2 { transform: translate(2.1rem, -.85rem) rotate(5deg) scale(.95); }
+#projects .project-folder:nth-child(2n) .folder-shot-3 { transform: translate(-2.2rem, -1.1rem) rotate(-5deg) scale(.92); }
+#projects .folder-placeholder { position: absolute; top: 1.25rem; left: 12%; width: 72%; height: 14.7rem; border-radius: 20px; background: linear-gradient(145deg, #e6dadd, #f8eded); box-shadow: 0 17px 31px rgba(39,34,35,.13); }
+#projects .folder-placeholder i { position: absolute; width: 55%; height: 50%; border: 1px solid rgba(255,255,255,.7); border-radius: 16px; background: rgba(255,255,255,.3); }
+#projects .folder-placeholder i:nth-child(1) { top: -1rem; left: -1.4rem; transform: rotate(-6deg); }
+#projects .folder-placeholder i:nth-child(2) { top: -.8rem; right: -1.2rem; transform: rotate(5deg); }
+#projects .folder-placeholder i:nth-child(3) { inset: 22% auto auto 22%; }
+#projects .folder-front {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 12.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.79);
+  border-radius: 27px;
+  background: linear-gradient(125deg, rgba(255,255,255,.57), rgba(255,255,255,.25) 54%, rgba(246,224,227,.35));
+  box-shadow: 0 24px 46px rgba(43,33,35,.15), inset 0 1px rgba(255,255,255,.88);
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+}
+#projects .folder-front::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(255,255,255,.48), transparent 35%, rgba(255,255,255,.08) 70%, rgba(255,210,216,.2)); pointer-events: none; }
+#projects .folder-tab { position: absolute; top: 0; left: 1.4rem; width: 7.5rem; height: .8rem; border-radius: 0 0 12px 12px; background: rgba(255,255,255,.42); }
+#projects .folder-reflection { position: absolute; top: -60%; right: -18%; width: 55%; height: 180%; border-radius: 50%; background: rgba(255,255,255,.32); filter: blur(15px); transform: rotate(24deg); transition: transform .5s ease; }
+#projects .folder-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; min-height: 12.25rem; padding: 1.45rem 1.3rem 1.1rem; color: #262528; }
+#projects .folder-content .project-category { margin-bottom: .35rem; color: #875961; font-size: .68rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+#projects .folder-content strong { margin-bottom: .42rem; font-size: 1.45rem; letter-spacing: -.035em; line-height: 1.1; }
+#projects .folder-content small { display: -webkit-box; max-width: 30ch; overflow: hidden; color: #505052; font-size: .8rem; line-height: 1.4; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+#projects .folder-content em { margin-top: .55rem; color: #656062; font-size: .68rem; font-style: normal; font-weight: 650; }
+#projects .folder-cta { display: inline-flex; align-items: center; gap: .4rem; margin-top: auto; color: #a6303d; font-size: .78rem; font-weight: 750; }
+#projects .folder-cta b { display: grid; place-items: center; width: 1.28rem; height: 1.28rem; border-radius: 50%; background: rgba(255,255,255,.56); font-size: .78rem; }
+#projects .project-access-note { min-height: 2.8rem; margin: .75rem .2rem 0; color: #716e70; font-size: .78rem; line-height: 1.45; }
+#projects .project-details { margin: .45rem .2rem 0; border-top-color: rgba(128,111,113,.18); }
+#projects .project-details summary { color: #a6303d; }
+#projects .project-links { margin-inline: .2rem; }
+#projects .project-folder:hover .project-folder-trigger { transform: translateY(-6px); }
+#projects .project-folder:hover .folder-shot-2 { transform: translate(-2.7rem, -1.55rem) rotate(-7deg) scale(.96); }
+#projects .project-folder:hover .folder-shot-3 { transform: translate(2.8rem, -1.8rem) rotate(6deg) scale(.93); }
+#projects .project-folder:nth-child(2n):hover .folder-shot-2 { transform: translate(2.7rem, -1.55rem) rotate(6deg) scale(.96); }
+#projects .project-folder:nth-child(2n):hover .folder-shot-3 { transform: translate(-2.8rem, -1.8rem) rotate(-6deg) scale(.93); }
+#projects .project-folder:hover .folder-reflection { transform: translateX(-35%) rotate(24deg); }
+#projects .reveal.is-visible .folder-shot { animation: folder-settle .65s cubic-bezier(.22,1,.36,1) both; }
+#projects .reveal.is-visible .folder-shot-2 { animation-delay: .07s; }
+#projects .reveal.is-visible .folder-shot-3 { animation-delay: .14s; }
+#projects .reveal.is-visible .folder-front { animation: folder-front-in .58s .12s cubic-bezier(.22,1,.36,1) both; }
+@keyframes folder-settle { from { opacity: 0; } to { opacity: .9; } }
+@keyframes folder-front-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 760px) {
+  #projects .section-heading h2 { font-size: clamp(2.25rem, 10vw, 3rem); }
+  #projects .projects-grid { gap: .85rem; padding-top: 1rem; }
+  #projects .project-card { flex-basis: min(86vw, 22rem); }
+  #projects .project-folder-trigger { height: 20rem; }
+  #projects .folder-shot { top: .9rem; height: 13.4rem; }
+  #projects .folder-front, #projects .folder-content { min-height: 11.6rem; }
+  #projects .folder-content { padding: 1.25rem 1.1rem .9rem; }
+  #projects .folder-content strong { font-size: 1.32rem; }
+}
 body .about-compact { max-width: 58rem; }
 .about-lead { max-width: 42rem; margin: 0; color: #373a37; font-size: clamp(1.2rem, 2.4vw, 1.65rem); line-height: 1.35; letter-spacing: -.025em; }
 .about-context { margin: .75rem 0 1.5rem; color: #8a5a5e; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
