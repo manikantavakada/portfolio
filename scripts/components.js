@@ -12,33 +12,26 @@ export function createProjectCard(project, index) {
     .join("");
 
   const shotCount = (project.screenshots || []).length;
-  const screenshots = shotCount
+  const cover = shotCount
     ? `
       <div class="project-gallery" data-gallery="${index}">
-        ${project.screenshots
-          .map((shot, shotIndex) => {
-            const alt = escapeHtml(shot.alt || `${project.title} application screen`);
-            return `
-              <button
-                type="button"
-                class="project-shot"
-                data-shot="${shotIndex}"
-                aria-label="Open screenshot ${shotIndex + 1} of ${shotCount}: ${alt}"
-              >
-                <img src="${escapeHtml(shot.src)}" alt="${alt}" loading="lazy" />
-                <span class="project-shot-zoom" aria-hidden="true">⤢</span>
-              </button>
-            `;
-          })
-          .join("")}
+        <button
+          type="button"
+          class="project-cover project-shot"
+          data-shot="0"
+          aria-label="Open the ${escapeHtml(project.title)} screenshot gallery, ${shotCount} screens"
+        >
+          <img src="${escapeHtml(project.screenshots[0].src)}" alt="${escapeHtml(project.screenshots[0].alt || `${project.title} application screen`)}" loading="lazy" />
+          <span class="project-cover-glass" aria-hidden="true"><i>View screens</i><b>${shotCount}</b></span>
+        </button>
       </div>
     `
     : "";
 
   const visualNote = !(project.screenshots || []).length && project.visualNote
     ? `
-      <div class="project-visual-note">
-        <span class="visual-note-label">Visual Access</span>
+      <div class="project-visual-note project-cover">
+        <span class="visual-note-label">Internal workflow</span>
         <p>${escapeHtml(project.visualNote)}</p>
       </div>
     `
@@ -53,6 +46,8 @@ export function createProjectCard(project, index) {
 
   return `
     <article class="project-card glass-panel reveal" data-delay="${index * 90}">
+      ${cover}
+      ${visualNote}
       <div class="project-card-header">
         <div>
           <p class="project-category">${escapeHtml(project.category)}</p>
@@ -60,8 +55,6 @@ export function createProjectCard(project, index) {
         </div>
         <span class="project-index">0${index + 1}</span>
       </div>
-      ${screenshots}
-      ${visualNote}
       <details class="project-details">
         <summary>About this project <span aria-hidden="true">+</span></summary>
         <div class="project-details-body">

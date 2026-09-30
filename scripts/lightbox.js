@@ -12,6 +12,7 @@ export function initLightbox(projects) {
   const prevButton = overlay.querySelector(".lightbox-prev");
   const nextButton = overlay.querySelector(".lightbox-next");
   const closeButton = overlay.querySelector(".lightbox-close");
+  const thumbnails = overlay.querySelector(".lightbox-thumbnails");
 
   let shots = [];
   let projectTitle = "";
@@ -29,6 +30,16 @@ export function initLightbox(projects) {
     const single = shots.length < 2;
     prevButton.hidden = single;
     nextButton.hidden = single;
+    if (thumbnails) {
+      thumbnails.innerHTML = shots
+        .map(
+          (item, index) => `
+            <button type="button" class="lightbox-thumb${index === current ? " is-current" : ""}" data-lightbox-shot="${index}" aria-label="View screenshot ${index + 1}">
+              <img src="${item.src}" alt="" />
+            </button>`
+        )
+        .join("");
+    }
   };
 
   const step = (delta) => {
@@ -71,6 +82,12 @@ export function initLightbox(projects) {
   prevButton.addEventListener("click", () => step(-1));
   nextButton.addEventListener("click", () => step(1));
   closeButton.addEventListener("click", close);
+  thumbnails?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-lightbox-shot]");
+    if (!button) return;
+    current = Number(button.dataset.lightboxShot);
+    render();
+  });
 
   overlay.addEventListener("click", (event) => {
     if (event.target === overlay || event.target.classList.contains("lightbox-stage")) {
