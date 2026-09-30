@@ -973,11 +973,20 @@ body .section-inner { padding-block: clamp(3rem, 5vw, 4.75rem); }
 #projects .projects-grid::-webkit-scrollbar { display: none; }
 #projects .project-card { min-width: 0; width: 100%; flex: none; }
 #projects .folder-front {
-  background: linear-gradient(125deg, color-mix(in srgb, var(--folder-glass, #e8faf7) 78%, white), color-mix(in srgb, var(--folder-primary, #14b8a6) 28%, transparent) 58%, rgba(255,255,255,.42));
-  box-shadow: 0 24px 46px color-mix(in srgb, var(--folder-glow, #a7f3d0) 50%, transparent), inset 0 1px rgba(255,255,255,.9);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--folder-glass, #e8faf7) 90%, var(--folder-primary, #14b8a6)), color-mix(in srgb, var(--folder-glass, #e8faf7) 68%, var(--folder-primary, #14b8a6)) 72%, color-mix(in srgb, var(--folder-glow, #a7f3d0) 76%, white));
+  box-shadow: 0 24px 46px color-mix(in srgb, var(--folder-glow, #a7f3d0) 68%, transparent), inset 0 1px rgba(255,255,255,.92);
 }
-#projects .folder-content .project-category, #projects .folder-cta { color: var(--folder-accent, #0f8f87); }
-#projects .folder-cta b { color: var(--folder-accent, #0f8f87); }
+#projects .project-folder .folder-content .project-category, #projects .project-folder .folder-cta { color: var(--folder-accent, #0f8f87) !important; }
+#projects .project-folder .folder-cta b { color: var(--folder-accent, #0f8f87) !important; }
+#projects .folder-placeholder { background: linear-gradient(135deg, color-mix(in srgb, var(--folder-glass, #f3eeff) 74%, var(--folder-primary, #8b5cf6)), var(--folder-glass, #f3eeff)); box-shadow: 0 17px 31px color-mix(in srgb, var(--folder-glow, #ddd6fe) 64%, transparent); }
+#projects .project-folder .folder-front {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--folder-glass, #e8faf7) 90%, var(--folder-primary, #14b8a6)), color-mix(in srgb, var(--folder-glass, #e8faf7) 68%, var(--folder-primary, #14b8a6)) 72%, color-mix(in srgb, var(--folder-glow, #a7f3d0) 76%, white));
+  box-shadow: 0 24px 46px color-mix(in srgb, var(--folder-glow, #a7f3d0) 68%, transparent), inset 0 1px rgba(255,255,255,.92);
+}
+#projects .project-folder .folder-placeholder {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--folder-glass, #f3eeff) 74%, var(--folder-primary, #8b5cf6)), var(--folder-glass, #f3eeff));
+  box-shadow: 0 17px 31px color-mix(in srgb, var(--folder-glow, #ddd6fe) 64%, transparent);
+}
 #projects .projects-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
