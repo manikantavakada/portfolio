@@ -42,7 +42,7 @@ export function createProjectCard(project, index) {
     .join("");
 
   return `
-    <article class="project-card project-folder reveal" data-delay="${index * 90}">
+    <article class="project-card project-folder project-theme-${index + 1} reveal" data-delay="${index * 90}">
       <div class="project-gallery" data-gallery="${index}">
         <button type="button" class="project-folder-trigger project-shot" data-shot="0" aria-label="Open ${escapeHtml(project.title)} project gallery">
           <span class="folder-stack" aria-hidden="true">${stack}</span>

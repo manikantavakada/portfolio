@@ -951,6 +951,54 @@ body .highlight-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 /* Projects: layered screenshot folders. Scoped to this section so no other layout changes. */
 #projects .section-heading { margin-bottom: 1.6rem; }
 #projects .section-heading h2 { max-width: none; }
+html body {
+  --primary: #0b7b80;
+  --secondary: #152140;
+  --accent: #0b7b80;
+  --text: #152140;
+  --muted: #64747a;
+  background: #f8fbfb;
+}
+body .section-inner { padding-block: clamp(3rem, 5vw, 4.75rem); }
+#projects .section-inner { padding-top: clamp(2.5rem, 4vw, 3.75rem); padding-bottom: clamp(2.5rem, 4vw, 3.75rem); }
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 1.1rem 0 .4rem;
+  overflow: visible;
+  scroll-snap-type: none;
+  scrollbar-width: none;
+}
+#projects .projects-grid::-webkit-scrollbar { display: none; }
+#projects .project-card { min-width: 0; width: 100%; flex: none; }
+#projects .folder-front {
+  background: linear-gradient(125deg, color-mix(in srgb, var(--folder-light, #e3f5f4) 58%, white), color-mix(in srgb, var(--folder-tint, #0b7b80) 24%, transparent) 55%, rgba(255,255,255,.36));
+}
+#projects .folder-content .project-category, #projects .folder-cta { color: var(--folder-ink, #0b7b80); }
+#projects .folder-cta b { color: var(--folder-ink, #0b7b80); }
+#projects .project-theme-1 { --folder-tint: #0b7b80; --folder-light: #c8eeed; --folder-ink: #076468; }
+#projects .project-theme-2 { --folder-tint: #167fac; --folder-light: #cfedf5; --folder-ink: #116589; }
+#projects .project-theme-3 { --folder-tint: #34145d; --folder-light: #eadcf9; --folder-ink: #4a2077; }
+#projects .project-theme-4 { --folder-tint: #d92d32; --folder-light: #ffe0df; --folder-ink: #af222a; }
+#projects .project-theme-5 { --folder-tint: #28508c; --folder-light: #d7e6fc; --folder-ink: #203f71; }
+#projects .project-theme-6 { --folder-tint: #52697c; --folder-light: #e2e9ee; --folder-ink: #3b5367; }
+body .navbar { border-color: rgba(11,123,128,.14); box-shadow: 0 12px 32px rgba(21,33,64,.1), inset 0 1px rgba(255,255,255,.9); }
+body .button-primary { background: #0b7b80; box-shadow: 0 11px 23px rgba(11,123,128,.22); }
+body .button-primary:hover, body .button-primary:focus-visible { background: #09666b; }
+body .hero-role, body .nav-links a.is-active, body .project-details summary { color: #0b7b80; }
+body .nav-links a.is-active::after { background: #0b7b80; }
+body .timeline-dot { background: #0b7b80; box-shadow: 0 0 0 5px rgba(11,123,128,.12); }
+body .availability span { background: #0b7b80; box-shadow: 0 0 0 4px rgba(11,123,128,.14); }
+
+@media (max-width: 1024px) {
+  #projects .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  body .section-inner { padding-block: 3rem; }
+  #projects .projects-grid { grid-template-columns: 1fr; gap: 1.4rem; padding-top: .75rem; }
+  #projects .project-card { max-width: 26rem; }
+}
 #projects .projects-grid {
   display: flex;
   gap: clamp(1rem, 2vw, 1.7rem);

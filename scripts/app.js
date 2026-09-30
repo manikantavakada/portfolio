@@ -78,25 +78,6 @@ function initActiveNavigation() {
   sections.forEach((section) => observer.observe(section));
 }
 
-function initProjectGalleryScroll() {
-  const gallery = document.querySelector("#projects-grid");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!gallery || reduceMotion) return;
-
-  gallery.addEventListener(
-    "wheel",
-    (event) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX) || gallery.scrollWidth <= gallery.clientWidth) return;
-      const atStart = gallery.scrollLeft <= 0;
-      const atEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1;
-      if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
-      event.preventDefault();
-      gallery.scrollLeft += event.deltaY;
-    },
-    { passive: false }
-  );
-}
-
 function initContactForm(content) {
   const form = document.querySelector("#contact-form");
   const note = document.querySelector("#form-note");
@@ -131,7 +112,6 @@ async function bootstrap() {
     populateContent(content);
     initNavigation();
     initActiveNavigation();
-    initProjectGalleryScroll();
     initLightbox(content.projects);
     initContactForm(content);
     initRevealAnimations();
