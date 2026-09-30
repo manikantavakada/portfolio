@@ -63,14 +63,19 @@ export function createProjectCard(project, index) {
       ${screenshots}
       ${visualNote}
       <p class="project-description">${escapeHtml(project.description)}</p>
-      <div class="project-features">
-        <p class="project-subtitle">Key Features</p>
-        <ul>${featureList}</ul>
-      </div>
-      <div class="project-impact">
-        <p class="project-subtitle">Impact</p>
-        <p>${escapeHtml(project.impact)}</p>
-      </div>
+      <details class="project-details">
+        <summary>Project details <span aria-hidden="true">+</span></summary>
+        <div class="project-details-body">
+          <div class="project-features">
+            <p class="project-subtitle">Key features</p>
+            <ul>${featureList}</ul>
+          </div>
+          <div class="project-impact">
+            <p class="project-subtitle">Outcome</p>
+            <p>${escapeHtml(project.impact)}</p>
+          </div>
+        </div>
+      </details>
       ${links ? `<div class="project-links">${links}</div>` : ""}
     </article>
   `;
@@ -111,19 +116,19 @@ export function createContactLinks(contact) {
   return `
     <div class="contact-stack">
       <a class="contact-link" href="mailto:${escapeHtml(contact.email)}">
-        <span>Email</span>
+        <span><i aria-hidden="true">✉</i>Email</span>
         <strong>${escapeHtml(contact.email)}</strong>
       </a>
       <a class="contact-link" href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noreferrer">
-        <span>LinkedIn</span>
+        <span><i aria-hidden="true">in</i>LinkedIn</span>
         <strong>${escapeHtml(contact.linkedin)}</strong>
       </a>
       <a class="contact-link" href="${escapeHtml(contact.github)}" target="_blank" rel="noreferrer">
-        <span>GitHub</span>
+        <span><i aria-hidden="true">⌘</i>GitHub</span>
         <strong>${escapeHtml(contact.github)}</strong>
       </a>
       <a class="contact-link" href="tel:${escapeHtml(contact.phone.replace(/\s+/g, ""))}">
-        <span>Phone</span>
+        <span><i aria-hidden="true">⌕</i>Phone</span>
         <strong>${escapeHtml(contact.phone)}</strong>
       </a>
     </div>

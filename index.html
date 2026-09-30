@@ -53,11 +53,11 @@
           </button>
 
           <div class="nav-links" id="nav-menu">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#about"><span class="nav-icon" aria-hidden="true">◌</span>About</a>
+            <a href="#experience"><span class="nav-icon" aria-hidden="true">↗</span>Experience</a>
+            <a href="#projects"><span class="nav-icon" aria-hidden="true">▦</span>Projects</a>
+            <a href="#skills"><span class="nav-icon" aria-hidden="true">✦</span>Skills</a>
+            <a href="#contact"><span class="nav-icon" aria-hidden="true">✉</span>Contact</a>
           </div>
         </nav>
       </header>
@@ -66,10 +66,10 @@
         <section class="hero section" id="hero">
           <div class="section-inner hero-grid">
             <div class="hero-copy reveal">
-              <p class="eyebrow">Available for impactful engineering work</p>
-              <p class="hero-name" id="hero-name"></p>
+              <p class="availability"><span aria-hidden="true"></span>Available for engineering opportunities</p>
+              <p class="hero-greeting">Hello, I’m</p>
+              <h1 id="hero-name"></h1>
               <p class="hero-role" id="hero-role"></p>
-              <h1>Designing reliable digital products with real-world impact.</h1>
               <p class="hero-intro" id="hero-tagline"></p>
 
               <div class="hero-meta">
@@ -79,26 +79,25 @@
               </div>
 
               <div class="hero-actions">
-                <a class="button button-primary" href="#projects">View Projects</a>
+                <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">→</span></a>
+                <a class="button button-secondary" href="#contact">Contact me</a>
               </div>
             </div>
 
             <div class="hero-spotlight reveal" data-delay="120">
-              <div class="hero-card glass-panel floating-card">
-                <p class="card-label">Focus Areas</p>
-                <div class="spotlight-items">
-                  <article>
-                    <strong>Scalable Product Delivery</strong>
-                    <span>Healthcare, logistics, and public service systems</span>
-                  </article>
-                  <article>
-                    <strong>High-Trust Experiences</strong>
-                    <span>Performance, clarity, and reliability in critical flows</span>
-                  </article>
-                  <article>
-                    <strong>Operational Visibility</strong>
-                    <span>Real-time tracking, scheduling, and workflow coordination</span>
-                  </article>
+              <div class="hero-card glass-panel floating-card" aria-label="Engineering focus overview">
+                <div class="workspace-top">
+                  <p class="card-label">Engineering workspace</p>
+                  <span class="workspace-status">● Active</span>
+                </div>
+                <div class="workspace-signal">
+                  <span class="signal-icon" aria-hidden="true">⌁</span>
+                  <div><strong>Building for the real world</strong><small>Clarity where complexity matters.</small></div>
+                </div>
+                <div class="workspace-grid">
+                  <article><span aria-hidden="true">⌁</span><strong>Live systems</strong><small>Tracking &amp; coordination</small></article>
+                  <article><span aria-hidden="true">↔</span><strong>Connected flows</strong><small>APIs &amp; payments</small></article>
+                  <article><span aria-hidden="true">◎</span><strong>Mobile UX</strong><small>Clear, reliable interfaces</small></article>
                 </div>
               </div>
             </div>
@@ -109,7 +108,7 @@
           <div class="section-inner">
             <div class="section-heading reveal">
               <p class="eyebrow">About</p>
-              <h2>Engineering products that feel thoughtful, fast, and dependable.</h2>
+              <h2>Thoughtful software for services people rely on.</h2>
             </div>
 
             <div class="about-grid">
@@ -118,17 +117,17 @@
               </article>
               <div class="highlight-grid">
                 <article class="glass-panel highlight-card reveal" data-delay="120">
-                  <span>01</span>
+                  <span class="feature-icon" aria-hidden="true">⌁</span>
                   <h3>Real-Time Systems</h3>
                   <p>Building responsive experiences for live tracking, bookings, and field coordination.</p>
                 </article>
                 <article class="glass-panel highlight-card reveal" data-delay="180">
-                  <span>02</span>
+                  <span class="feature-icon" aria-hidden="true">↔</span>
                   <h3>Integration-Heavy Workflows</h3>
                   <p>Connecting APIs, notifications, and transaction flows into reliable production systems.</p>
                 </article>
                 <article class="glass-panel highlight-card reveal" data-delay="240">
-                  <span>03</span>
+                  <span class="feature-icon" aria-hidden="true">◉</span>
                   <h3>Performance Focus</h3>
                   <p>Improving usability and resilience for products where every second and interaction matters.</p>
                 </article>
@@ -141,7 +140,7 @@
           <div class="section-inner">
             <div class="section-heading reveal">
               <p class="eyebrow">Experience</p>
-              <h2>Progress shaped by product ownership and measurable outcomes.</h2>
+              <h2>Experience building production software.</h2>
             </div>
             <div class="timeline" id="experience-timeline"></div>
           </div>
@@ -151,7 +150,7 @@
           <div class="section-inner">
             <div class="section-heading reveal">
               <p class="eyebrow">Selected Work</p>
-              <h2>Products built around reliability, clarity, and execution at scale.</h2>
+              <h2>Selected products.</h2>
             </div>
             <div class="projects-grid" id="projects-grid"></div>
           </div>
@@ -161,7 +160,7 @@
           <div class="section-inner">
             <div class="section-heading reveal">
               <p class="eyebrow">Capabilities</p>
-              <h2>Cross-functional engineering skills for product teams that move fast.</h2>
+              <h2>Tools and capabilities I use to ship.</h2>
             </div>
             <div class="skills-cloud glass-panel reveal" id="skills-grid"></div>
           </div>
@@ -171,7 +170,7 @@
           <div class="section-inner">
             <div class="section-heading reveal">
               <p class="eyebrow">Contact</p>
-              <h2>Let’s build something with real utility and polish.</h2>
+              <h2>Have a project in mind?</h2>
             </div>
 
             <div class="contact-grid">

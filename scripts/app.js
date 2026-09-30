@@ -56,6 +56,27 @@ function initNavigation() {
   });
 }
 
+function initActiveNavigation() {
+  const links = [...document.querySelectorAll(".nav-links a")];
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    links.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting);
+      if (visible.length) setActive(visible[0].target.id);
+    },
+    { rootMargin: "-35% 0px -52% 0px", threshold: 0 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 function initContactForm(content) {
   const form = document.querySelector("#contact-form");
   const note = document.querySelector("#form-note");
@@ -89,6 +110,7 @@ async function bootstrap() {
     const content = await loadContent();
     populateContent(content);
     initNavigation();
+    initActiveNavigation();
     initLightbox(content.projects);
     initContactForm(content);
     initRevealAnimations();
