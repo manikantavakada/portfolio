@@ -20,7 +20,8 @@ function populateContent(content) {
   document.querySelector("#hero-name").textContent = content.hero.name;
   document.querySelector("#hero-role").textContent = content.hero.title;
   document.querySelector("#hero-tagline").textContent = content.hero.tagline;
-  document.querySelector("#about-summary").textContent = content.about.summary;
+  const aboutSummary = document.querySelector("#about-summary");
+  if (aboutSummary) aboutSummary.textContent = content.about.summary;
 
   document.querySelector("#experience-timeline").innerHTML = content.experience
     .map((item, index) => createTimelineItem(item, index))
