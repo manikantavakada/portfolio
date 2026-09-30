@@ -114,19 +114,19 @@ export function createContactLinks(contact) {
   return `
     <div class="contact-stack">
       <a class="contact-link" href="mailto:${escapeHtml(contact.email)}">
-        <span><i aria-hidden="true">✉</i>Email</span>
+        <span><i data-lucide="mail" aria-hidden="true"></i>Email</span>
         <strong>${escapeHtml(contact.email)}</strong>
       </a>
       <a class="contact-link" href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noreferrer">
-        <span><i aria-hidden="true">in</i>LinkedIn</span>
+        <span><i data-lucide="linkedin" aria-hidden="true"></i>LinkedIn</span>
         <strong>${escapeHtml(contact.linkedin)}</strong>
       </a>
       <a class="contact-link" href="${escapeHtml(contact.github)}" target="_blank" rel="noreferrer">
-        <span><i aria-hidden="true">⌘</i>GitHub</span>
+        <span><i data-lucide="github" aria-hidden="true"></i>GitHub</span>
         <strong>${escapeHtml(contact.github)}</strong>
       </a>
       <a class="contact-link" href="tel:${escapeHtml(contact.phone.replace(/\s+/g, ""))}">
-        <span><i aria-hidden="true">⌕</i>Phone</span>
+        <span><i data-lucide="phone" aria-hidden="true"></i>Phone</span>
         <strong>${escapeHtml(contact.phone)}</strong>
       </a>
     </div>

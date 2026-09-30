@@ -106,10 +106,19 @@ function initPageLoad() {
   });
 }
 
+function initIcons() {
+  window.lucide?.createIcons({
+    attrs: {
+      "stroke-width": 1.8
+    }
+  });
+}
+
 async function bootstrap() {
   try {
     const content = await loadContent();
     populateContent(content);
+    initIcons();
     initNavigation();
     initActiveNavigation();
     initLightbox(content.projects);
