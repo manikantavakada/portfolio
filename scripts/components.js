@@ -62,10 +62,10 @@ export function createProjectCard(project, index) {
       </div>
       ${screenshots}
       ${visualNote}
-      <p class="project-description">${escapeHtml(project.description)}</p>
       <details class="project-details">
-        <summary>Project details <span aria-hidden="true">+</span></summary>
+        <summary>About this project <span aria-hidden="true">+</span></summary>
         <div class="project-details-body">
+          <p class="project-description">${escapeHtml(project.description)}</p>
           <div class="project-features">
             <p class="project-subtitle">Key features</p>
             <ul>${featureList}</ul>
